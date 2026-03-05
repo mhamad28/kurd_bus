@@ -27,50 +27,34 @@ st.sidebar.title("Suly Transit System")
 role = st.sidebar.radio("Select Portal:", ["🚶 Pedestrian View", "👨‍✈️ Driver Broadcast"])
 
 # --- 4. DRIVER PORTAL (Data Ingestion) ---
-if role == "👨‍✈️ Driver Broadcast":
-    st.header("Driver Tracking Mode")
-    
-    # SECURITY: Access code protects your research data
-    access_code = st.text_input("Enter Driver Access Code", type="password")
-    
-    if access_code == "Suly2026": 
-        st.success("Access Granted! Please enter shift details.")
-        
-        with st.form("driver_info"):
-            name = st.text_input("Driver Name")
-            plate = st.text_input("Bus Plate Number")
-            start = st.form_submit_button("Start Shift & Keep Screen ON")
-
-        if start:
-            st.info(f"Broadcasting active for {plate}. Do not lock your screen.")
+if start:
+            st.info(f"Tracking Active for {plate}. Keep screen ON.")
             
-            # This container allows us to update status without cluttering the page
-            status_placeholder = st.empty()
+            # Create a fixed area on the screen so it doesn't jump around
+            dashboard = st.empty() 
             
             while True:
                 loc = get_geolocation()
-                if loc:
-                    lat = loc['coords']['latitude']
-                    lon = loc['coords']['longitude']
-                    
-                    # A. UPDATE LIVE MAP (Overwrites current location)
-                    live_data = {"plate_number": plate, "driver_name": name, "lat": lat, "lon": lon}
-                    supabase.table("live_bus_data").upsert(live_data, on_conflict="plate_number").execute()
-                    
-                    # B. SAVE TO HISTORY (Adds new row for Thesis/Spark analysis)
-                    history_data = {"plate_number": plate, "lat": lat, "lon": lon}
-                    supabase.table("bus_location_history").insert(history_data).execute()
-                    
-                    with status_placeholder.container():
-                        st.write(f"📍 Last GPS Ping: {lat}, {lon}")
-                        st.write(f"🕒 Last Sync: {time.strftime('%H:%M:%S')}")
                 
-                # Ping every 15 seconds to balance battery and data accuracy
-                time.sleep(15) 
-                st.rerun() 
-    
-    elif access_code != "":
-        st.error("Incorrect Access Code. Data collection blocked.")
+                if loc:
+                    lat, lon = loc['coords']['latitude'], loc['coords']['longitude']
+                    
+                    # Log to both tables
+                    supabase.table("live_bus_data").upsert({"plate_number": plate, "lat": lat, "lon": lon, "driver_name": name}, on_conflict="plate_number").execute()
+                    supabase.table("bus_location_history").insert({"plate_number": plate, "lat": lat, "lon": lon}).execute()
+                    
+                    # Update ONLY the dashboard area
+                    with dashboard.container():
+                        st.success("📡 Signal Strong - Broadcasting...")
+                        st.metric("Current Latitude", f"{lat:.5f}")
+                        st.metric("Current Longitude", f"{lon:.5f}")
+                        st.write(f"Last update: {time.strftime('%H:%M:%S')}")
+                else:
+                    with dashboard.container():
+                        st.warning("⏳ Waiting for GPS signal... Check if Location is enabled on your phone.")
+
+                time.sleep(10) # 10 seconds is the "sweet spot" for Suly traffic data
+                st.rerun()
 
 # --- 5. PEDESTRIAN PORTAL (Real-Time Map) ---
 else:
@@ -104,3 +88,4 @@ else:
 if role == "🚶 Pedestrian View":
     time.sleep(20)
     st.rerun()
+
