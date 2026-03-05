@@ -23,32 +23,29 @@ df_route = load_route()
 st.sidebar.title("Suly Transit System")
 role = st.sidebar.radio("Select Portal:", ["🚶 Pedestrian View", "👨‍✈️ Driver Broadcast"])
 
-# --- 4. DRIVER PORTAL (With Memory/Session State) ---
+# --- 4. DRIVER PORTAL (Stabilized Tracking) ---
 if role == "👨‍✈️ Driver Broadcast":
     st.header("Driver Tracking Mode")
 
-    # Initialize "Memory" if it doesn't exist
+    # Use Session State to keep the shift active
     if 'tracking_active' not in st.session_state:
         st.session_state.tracking_active = False
 
-    # If NOT tracking, show the login form
     if not st.session_state.tracking_active:
         with st.form("driver_info"):
-            st.session_state.name = st.text_input("Driver Name")
+            st.session_state.driver_name = st.text_input("Driver Name")
             st.session_state.plate = st.text_input("Bus Plate Number")
             submit = st.form_submit_button("Start Shift")
             if submit:
                 st.session_state.tracking_active = True
                 st.rerun()
 
-    # If tracking IS active, run the loop forever
     else:
         st.success(f"🚀 Tracking Active for {st.session_state.plate}")
         if st.button("Stop Shift"):
             st.session_state.tracking_active = False
             st.rerun()
         
-        # This keeps the GPS data visible in one place
         dashboard = st.empty()
         
         while st.session_state.tracking_active:
@@ -57,21 +54,30 @@ if role == "👨‍✈️ Driver Broadcast":
                 lat = loc['coords']['latitude']
                 lon = loc['coords']['longitude']
                 
-                # A. Update Live Map
-                live_data = {"plate_number": st.session_state.plate, "driver_name": st.session_state.name, "lat": lat, "lon": lon}
+                # A. UPDATE LIVE MAP (Matches Supabase Columns Exactly)
+                live_data = {
+                    "plate_number": st.session_state.plate, 
+                    "driver_name": st.session_state.driver_name, 
+                    "lat": lat, 
+                    "lon": lon
+                }
                 supabase.table("live_bus_data").upsert(live_data, on_conflict="plate_number").execute()
                 
-                # B. Save to History (Research Data)
-                history_data = {"plate_number": st.session_state.plate, "lat": lat, "lon": lon}
+                # B. SAVE TO HISTORY (Research Data)
+                history_data = {
+                    "plate_number": st.session_state.plate, 
+                    "lat": lat, 
+                    "lon": lon
+                }
                 supabase.table("bus_location_history").insert(history_data).execute()
                 
                 with dashboard.container():
-                    st.info("📡 GPS Signal Strong - Point Saved to History")
-                    st.write(f"📍 Location: {lat:.5f}, {lon:.5f}")
+                    st.info("📡 GPS Active - Every 15s point saved to History")
+                    st.write(f"📍 Current: {lat:.5f}, {lon:.5f}")
                     st.write(f"🕒 Last Ping: {time.strftime('%H:%M:%S')}")
             
-            time.sleep(15) # Wait 15 seconds
-            st.rerun() # Refresh and keep going
+            time.sleep(15) 
+            st.rerun() 
 
 # --- 5. PEDESTRIAN PORTAL ---
 else:
