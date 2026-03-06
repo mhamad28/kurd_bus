@@ -132,7 +132,7 @@ def geocode_address(address: str):
 
     address = address.strip()
 
-    # Support raw coordinates: "lat, lon"
+    # Supports raw coordinates like: 35.576151, 45.337101
     if "," in address:
         parts = [p.strip() for p in address.split(",")]
         if len(parts) == 2:
@@ -232,11 +232,11 @@ def save_driver_ping(driver_name, plate_number, line_id, lat, lon):
         "recorded_at": now_iso,
     }
 
-    # Live table: keep only latest row for a bus
+    # Delete old row for same bus, then insert latest one
     supabase.table("live_bus_data").delete().eq("plate_number", plate_number).execute()
     supabase.table("live_bus_data").insert(live_data).execute()
 
-    # History table: always append
+    # Append into history table
     supabase.table("bus_location_history").insert(history_data).execute()
 
 
@@ -246,7 +246,6 @@ def build_passenger_map(
     origin_point=None,
     destination_point=None,
     highlight_route=None,
-    show_all_lines=True,
 ):
     m = folium.Map(
         location=[35.56, 45.43],
@@ -255,35 +254,39 @@ def build_passenger_map(
         control_scale=True,
     )
 
+    all_routes_layer = folium.FeatureGroup(name="Bus Lines", show=True)
+    recommended_layer = folium.FeatureGroup(name="Recommended Route", show=True)
+    live_buses_layer = folium.FeatureGroup(name="Live Buses", show=True)
+    points_layer = folium.FeatureGroup(name="Origin / Destination", show=True)
+
     for feature in routes_geojson["features"]:
         route_name = feature["properties"].get("layer", "Bus Route")
         color = ROUTE_COLORS.get(route_name, "#00bfff")
 
-        # If full network is off, only show highlighted route
-        if not show_all_lines and highlight_route and route_name != highlight_route:
-            continue
-
-        if highlight_route:
-            if route_name == highlight_route:
-                opacity = 0.95
-                weight = 6
-            else:
-                opacity = 0.25 if show_all_lines else 0
-                weight = 3
-        else:
-            opacity = 0.85
-            weight = 5
-
+        # All routes
         folium.GeoJson(
             feature,
             name=route_name,
             tooltip=route_name,
-            style_function=lambda x, color=color, weight=weight, opacity=opacity: {
+            style_function=lambda x, color=color: {
                 "color": color,
-                "weight": weight,
-                "opacity": opacity,
+                "weight": 4,
+                "opacity": 0.7,
             },
-        ).add_to(m)
+        ).add_to(all_routes_layer)
+
+        # Highlighted route only
+        if highlight_route and route_name == highlight_route:
+            folium.GeoJson(
+                feature,
+                name=f"Recommended: {route_name}",
+                tooltip=f"Recommended: {route_name}",
+                style_function=lambda x, color=color: {
+                    "color": color,
+                    "weight": 7,
+                    "opacity": 1.0,
+                },
+            ).add_to(recommended_layer)
 
     if live_buses_df is not None and not live_buses_df.empty:
         for _, row in live_buses_df.iterrows():
@@ -292,7 +295,7 @@ def build_passenger_map(
                 popup=f"Bus: {row['plate_number']}",
                 tooltip=f"Bus {row['plate_number']}",
                 icon=folium.Icon(color="orange", icon="bus", prefix="fa"),
-            ).add_to(m)
+            ).add_to(live_buses_layer)
 
     if origin_point:
         folium.Marker(
@@ -300,7 +303,7 @@ def build_passenger_map(
             popup=origin_point.get("label", "Origin"),
             tooltip="Origin",
             icon=folium.Icon(color="green", icon="play"),
-        ).add_to(m)
+        ).add_to(points_layer)
 
     if destination_point:
         folium.Marker(
@@ -308,7 +311,14 @@ def build_passenger_map(
             popup=destination_point.get("label", "Destination"),
             tooltip="Destination",
             icon=folium.Icon(color="red", icon="flag"),
-        ).add_to(m)
+        ).add_to(points_layer)
+
+    all_routes_layer.add_to(m)
+    recommended_layer.add_to(m)
+    live_buses_layer.add_to(m)
+    points_layer.add_to(m)
+
+    folium.LayerControl(collapsed=False).add_to(m)
 
     return m
 
@@ -499,8 +509,6 @@ else:
 
         st.markdown("</div>", unsafe_allow_html=True)
 
-        show_all_lines = st.checkbox("Show all bus lines", value=True)
-
         highlight_route = None
         if st.session_state.origin_point and st.session_state.destination_point:
             origin_route = nearest_route(
@@ -524,7 +532,6 @@ else:
             origin_point=st.session_state.origin_point,
             destination_point=st.session_state.destination_point,
             highlight_route=highlight_route,
-            show_all_lines=show_all_lines,
         )
 
         map_data = st_folium(passenger_map, height=650, width="stretch")
