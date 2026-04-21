@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -174,336 +173,335 @@ var SK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx
 var SID='sess_'+Math.random().toString(36).slice(2)+Date.now().toString(36);
 var A={};var cur=0;var rEx=false;
 
-var PR=[‘Duhok’,‘Halabja’,‘Hawler’,‘Kirkuk’,‘Sulaymaniyah’];
+var PR=['Duhok','Halabja','Hawler','Kirkuk','Sulaymaniyah'];
 
 var KQ={
-q1:‘لە کام پارێزگاوە لەگەڵمانی؟’,
-q2:‘تەمەنت لە نێوانی چەنە؟’,
-q3:’(ئارەزوومەندانە) ناوت، ئیمەیڵ یان شوێنەکەت بنووسە’,
-q4:‘ڕۆژانە زیاتر بە چی هاتوچۆ ئەکەیت؟’,
-q5:‘ئەگەر پاس بەکاربێنی، زیاتر بۆچی بەکاری ئەهێنی؟’,
-q6:‘ئەگەر پاس بەکارناهێنی بۆ؟’,
-q7:‘ئەگەر بە پاس چوون هەمان کاتی ئۆتۆمبێلەکەت بخایەنێ، ئامادەی پاس هەڵبژێری؟’,
-q8:‘ئەگەر بە پاس چوون ٥ خولەک زیاتر بخایەنێ لە ئۆتۆمبێلەکەت، هەر ئامادەی بەکاری بێنی؟’,
-q9:‘ئەگەر بە پاس چوون ١٠ تا ١٥ خولەک زیاتر بخایەنێ، هەر ئامادەی بەکاری بێنی؟’,
-q10:‘چەند گۆڕین ئامادەیت بیکەی بۆ گەشتن بە شوێنی مەبەستت؟’,
-q11:‘ئەگەر خزمەتگوزاری پاس لای شوێنی نیشتەجێبوون و شوێنی ئیشەکەت هەبێ، ئامادەی زۆربەی کات بەکاری بێنی لەجیاتی ئۆتۆمبێلی تایبەتی؟’,
-q12:‘پاسەکانی شاری خۆت بە کاتەوە چۆن دەبینیت؟’,
-q14:‘چەندە ئاسانە زانیاری ڕێگا و کاتەکانی پاسەکان بدۆزیتەوە؟’,
-q15:‘پێتوایە چ شتێک وادەکات زیاتر پاس بەکار بهێنرێت؟’,
-q16:‘ئایا ئەتزانی؟ سلێمانی نزیکەی ٣٩ هێڵی پاسی هەیە کە بە زۆربەی شوێنەکانی شارەکە دەگەن’,
-q17:‘بۆچوون و پێشنیار؟ ئەگەر دەتەوێت بەشێک بیت لەم پرۆژەیە و یارمەتی بدەیت گواستنەوەی گشتی بکرێتە دیجیتاڵ و باشتر بۆ هەموو شارەکانی کوردستان — ئێرە بنووسە’
+  q1:'لە کام پارێزگاوە لەگەڵمانی؟',
+  q2:'تەمەنت لە نێوانی چەنە؟',
+  q3:'(ئارەزوومەندانە) ناوت، ئیمەیڵ یان شوێنەکەت بنووسە',
+  q4:'ڕۆژانە زیاتر بە چی هاتوچۆ ئەکەیت؟',
+  q5:'ئەگەر پاس بەکاربێنی، زیاتر بۆچی بەکاری ئەهێنی؟',
+  q6:'ئەگەر پاس بەکارناهێنی بۆ؟',
+  q7:'ئەگەر بە پاس چوون هەمان کاتی ئۆتۆمبێلەکەت بخایەنێ، ئامادەی پاس هەڵبژێری؟',
+  q8:'ئەگەر بە پاس چوون ٥ خولەک زیاتر بخایەنێ لە ئۆتۆمبێلەکەت، هەر ئامادەی بەکاری بێنی؟',
+  q9:'ئەگەر بە پاس چوون ١٠ تا ١٥ خولەک زیاتر بخایەنێ، هەر ئامادەی بەکاری بێنی؟',
+  q10:'چەند گۆڕین ئامادەیت بیکەی بۆ گەشتن بە شوێنی مەبەستت؟',
+  q11:'ئەگەر خزمەتگوزاری پاس لای شوێنی نیشتەجێبوون و شوێنی ئیشەکەت هەبێ، ئامادەی زۆربەی کات بەکاری بێنی لەجیاتی ئۆتۆمبێلی تایبەتی؟',
+  q12:'پاسەکانی شاری خۆت بە کاتەوە چۆن دەبینیت؟',
+  q14:'چەندە ئاسانە زانیاری ڕێگا و کاتەکانی پاسەکان بدۆزیتەوە؟',
+  q15:'پێتوایە چ شتێک وادەکات زیاتر پاس بەکار بهێنرێت؟',
+  q16:'ئایا ئەتزانی؟ سلێمانی نزیکەی ٣٩ هێڵی پاسی هەیە کە بە زۆربەی شوێنەکانی شارەکە دەگەن',
+  q17:'بۆچوون و پێشنیار؟ ئەگەر دەتەوێت بەشێک بیت لەم پرۆژەیە و یارمەتی بدەیت گواستنەوەی گشتی بکرێتە دیجیتاڵ و باشتر بۆ هەموو شارەکانی کوردستان — ئێرە بنووسە'
 };
 
 var KO={
-‘Duhok’:‘دهۆک’,‘Halabja’:‘هەڵەبجە’,‘Hawler’:‘هەولێر’,‘Kirkuk’:‘کەرکووک’,‘Sulaymaniyah’:‘سلێمانی’,
-‘Under 18’:‘لە ژێر ١٨’,‘18–25’:‘١٨–٢٥’,‘26–40’:‘٢٦–٤٠’,‘41–60’:‘٤١–٦٠’,‘60+’:‘٦٠+’,
-‘Bus’:‘پاس’,‘Taxi’:‘تاکسی’,‘Private car’:‘ئۆتۆمبێلی تایبەت’,
-‘Work’:‘کار’,‘School / University’:‘قوتابخانە / زانکۆ’,‘Shopping’:‘بازاڕکردن’,
-‘Visiting friends or family’:‘سەردانی هاوڕێ و خێزان’,‘Other’:‘هیتر’,
-‘No official app for schedules and routes’:‘ئەپی فەرمی بۆ کاتژمێر و ڕێگاکانی پاس نییە’,
-‘I prefer using my own car’:‘باشتر وایە ئۆتۆمبێل بەکار بهێنم’,
-‘No fixed bus stops’:‘وێستگەی دیاریکراوی نییە’,
-‘Long waiting times’:‘کاتی چاوەڕوانی درێژەیە’,
-‘Bus routes don't reach my area’:‘دەوروبەری شوێنی نیشتەجێبوونم ڕێگای پاسی بەسەرەوە نییە’,
-‘Buses are not clean’:‘پاسەکان پاک نین’,
-‘Not enough seats’:‘شوێنی دانیشتن کەمە’,
-‘Not accessible for people with special needs’:‘ڕێگای سەرکەوتن نییە بۆ خاوەنپێداویستی تایبەت’,
-‘Yes’:‘بەڵێ’,‘Maybe’:‘لەوانەیە’,‘No’:‘نەخێر’,
-‘No changes, direct — one bus’:‘بێ گۆڕین، ڕاستەوخۆ یەک پاس’,
-‘1 change — two buses’:‘١ گۆڕین، دوو پاس’,
-‘2 changes — three buses’:‘٢ گۆڕین، ٣ پاس’,
-‘I would not use buses’:‘پاس بەکار ناهێنم’,
-‘There is no schedule at all’:‘هیچ خشتەیەک نییە’,
-‘Poor’:‘خراپ’,‘Average’:‘مامناوەند’,‘Good’:‘باش’,‘Very good’:‘زۆر باش’,
-‘Less than 5 minutes’:‘کەمتر لە ٥ خولەک’,
-‘5 to 10 minutes’:‘٥ تا ١٠ خولەک’,
-‘10 to 20 minutes’:‘١٠ تا ٢٠ خولەک’,
-‘More than 20 minutes’:‘زیاتر لە ٢٠ خولەک’,
-‘Only locals know’:‘تەنها خەڵکی شارەکە ئەیزانێ’,
-‘Only regular users know’:‘تەنها ئەوانەی بەردەوام بەکاریدێنێ ئەیزانن’,
-‘Only common lines are known’:‘تەنها ڕێگا باوەکان ناسراون’,
-‘There is an app for times and routes’:‘ئەپی فەرمی بۆ کات و ڕێگاکانیان هەیە’,
-‘Mobile app with live bus tracking’:‘ئەپی مۆبایل بە شوێنکەوتنی ڕاستەوخۆی پاسەکان’,
-‘More frequent buses’:‘پاسی زیاتر’,
-‘Clear published schedules’:‘خشتەی هاتن و چۆنی هێڵەکان ڕوون و بڵاوکراوە’,
-‘Better route coverage’:‘هێڵی پاس بۆ ناوچەی زیاتر’,
-‘More comfortable seats’:‘شوێنی دانیشتنی باشتر’,
-‘Lower ticket price’:‘نرخی کەمتر’,
-‘Cleaner buses’:‘پاسی پاک و تەمیزتر’,
-‘Buses accessible for people with disabilities’:‘پاس گونجاوبێت بۆ خاوەنپێداویستی تایبەت’,
-‘Blind guide lines at stops’:‘هێڵی ڕێنمایی بۆ نابینایان لە وێستگەکان’,
-‘Fixed and clear bus stops’:‘وێستگە (مەوقیف)ی دیاریکراو و ئاشکرا’,
-‘Route info displayed at stops’:‘زانیاری هێڵەکان لە وێستگە (مەوقیف)کاندا نیشاندراو بێت’,
-‘Fixed departure times from main terminal’:‘کاتی دەرچوونی دیاریکراو لە وێستگە (مەوقیف)ی سەرەکی’,
-‘Remove middle seats so people don't climb over others’:‘لابردنی کورسی ناوەراست بۆ ئەوەی ئەوەنە هەڵنەسی بۆ کەسی دواوە’
+  'Duhok':'دهۆک','Halabja':'هەڵەبجە','Hawler':'هەولێر','Kirkuk':'کەرکووک','Sulaymaniyah':'سلێمانی',
+  'Under 18':'لە ژێر ١٨','18–25':'١٨–٢٥','26–40':'٢٦–٤٠','41–60':'٤١–٦٠','60+':'٦٠+',
+  'Bus':'پاس','Taxi':'تاکسی','Private car':'ئۆتۆمبێلی تایبەت',
+  'Work':'کار','School / University':'قوتابخانە / زانکۆ','Shopping':'بازاڕکردن',
+  'Visiting friends or family':'سەردانی هاوڕێ و خێزان','Other':'هیتر',
+  'No official app for schedules and routes':'ئەپی فەرمی بۆ کاتژمێر و ڕێگاکانی پاس نییە',
+  'I prefer using my own car':'باشتر وایە ئۆتۆمبێل بەکار بهێنم',
+  'No fixed bus stops':'وێستگەی دیاریکراوی نییە',
+  'Long waiting times':'کاتی چاوەڕوانی درێژەیە',
+  'Bus routes don\'t reach my area':'دەوروبەری شوێنی نیشتەجێبوونم ڕێگای پاسی بەسەرەوە نییە',
+  'Buses are not clean':'پاسەکان پاک نین',
+  'Not enough seats':'شوێنی دانیشتن کەمە',
+  'Not accessible for people with special needs':'ڕێگای سەرکەوتن نییە بۆ خاوەنپێداویستی تایبەت',
+  'Yes':'بەڵێ','Maybe':'لەوانەیە','No':'نەخێر',
+  'No changes, direct — one bus':'بێ گۆڕین، ڕاستەوخۆ یەک پاس',
+  '1 change — two buses':'١ گۆڕین، دوو پاس',
+  '2 changes — three buses':'٢ گۆڕین، ٣ پاس',
+  'I would not use buses':'پاس بەکار ناهێنم',
+  'There is no schedule at all':'هیچ خشتەیەک نییە',
+  'Poor':'خراپ','Average':'مامناوەند','Good':'باش','Very good':'زۆر باش',
+  'Less than 5 minutes':'کەمتر لە ٥ خولەک',
+  '5 to 10 minutes':'٥ تا ١٠ خولەک',
+  '10 to 20 minutes':'١٠ تا ٢٠ خولەک',
+  'More than 20 minutes':'زیاتر لە ٢٠ خولەک',
+  'Only locals know':'تەنها خەڵکی شارەکە ئەیزانێ',
+  'Only regular users know':'تەنها ئەوانەی بەردەوام بەکاریدێنێ ئەیزانن',
+  'Only common lines are known':'تەنها ڕێگا باوەکان ناسراون',
+  'There is an app for times and routes':'ئەپی فەرمی بۆ کات و ڕێگاکانیان هەیە',
+  'Mobile app with live bus tracking':'ئەپی مۆبایل بە شوێنکەوتنی ڕاستەوخۆی پاسەکان',
+  'More frequent buses':'پاسی زیاتر',
+  'Clear published schedules':'خشتەی هاتن و چۆنی هێڵەکان ڕوون و بڵاوکراوە',
+  'Better route coverage':'هێڵی پاس بۆ ناوچەی زیاتر',
+  'More comfortable seats':'شوێنی دانیشتنی باشتر',
+  'Lower ticket price':'نرخی کەمتر',
+  'Cleaner buses':'پاسی پاک و تەمیزتر',
+  'Buses accessible for people with disabilities':'پاس گونجاوبێت بۆ خاوەنپێداویستی تایبەت',
+  'Blind guide lines at stops':'هێڵی ڕێنمایی بۆ نابینایان لە وێستگەکان',
+  'Fixed and clear bus stops':'وێستگە (مەوقیف)ی دیاریکراو و ئاشکرا',
+  'Route info displayed at stops':'زانیاری هێڵەکان لە وێستگە (مەوقیف)کاندا نیشاندراو بێت',
+  'Fixed departure times from main terminal':'کاتی دەرچوونی دیاریکراو لە وێستگە (مەوقیف)ی سەرەکی',
+  'Remove middle seats so people don\'t climb over others':'لابردنی کورسی ناوەراست بۆ ئەوەی ئەوەنە هەڵنەسی بۆ کەسی دواوە'
 };
 
 var KP={
-‘👤 Basic information’:’’,
-‘📋 Identity’:‘📋 ناسنامە’,
-‘🚌 Transport usage’:‘🚌 بەکارهێنانی گواستنەوە’,
-‘❌ Non-usage reasons’:‘❌ هۆکارەکانی بەکارنەهێنان’,
-‘⏱️ Travel time’:‘⏱️ کاتی گەشتکردن’,
-‘🔄 Transfers’:‘🔄 گۆڕینی پاس’,
-‘🗺️ Route convenience’:‘🗺️ ئاسانی ڕێگا’,
-‘📊 Service quality’:‘📊 کوالیتی خزمەتگوزاری’,
-‘💡 Improvements’:‘💡 باشترکردنەکان’,
-‘🧠 Awareness’:‘🧠 زانیاری’,
-‘💬 Your ideas’:‘💬 بۆچوون و پێشنیارەکانت’
+  '👤 Basic information':'',
+  '📋 Identity':'📋 ناسنامە',
+  '🚌 Transport usage':'🚌 بەکارهێنانی گواستنەوە',
+  '❌ Non-usage reasons':'❌ هۆکارەکانی بەکارنەهێنان',
+  '⏱️ Travel time':'⏱️ کاتی گەشتکردن',
+  '🔄 Transfers':'🔄 گۆڕینی پاس',
+  '🗺️ Route convenience':'🗺️ ئاسانی ڕێگا',
+  '📊 Service quality':'📊 کوالیتی خزمەتگوزاری',
+  '💡 Improvements':'💡 باشترکردنەکان',
+  '🧠 Awareness':'🧠 زانیاری',
+  '💬 Your ideas':'💬 بۆچوون و پێشنیارەکانت'
 };
 
 var SEC=[
-{pill:‘👤 Basic information’, ctx:null, note:null, qs:[
-{id:‘q1’,col:‘q1_city’,text:‘Which province are you from?’,type:‘radio’,opts:PR},
-{id:‘q2’,col:‘q2_age’,text:‘What is your age group?’,type:‘radio’,opts:[‘Under 18’,‘18–25’,‘26–40’,‘41–60’,‘60+’]}
-]},
-{pill:‘📋 Identity’, ctx:null, note:null, qs:[
-{id:‘q3’,col:‘q3_identity’,text:’(Optional) Share your name, email or location’,hint:‘Choose what you are comfortable sharing’,type:‘nl’}
-]},
-{pill:‘🚌 Transport usage’, ctx:null, note:null, qs:[
-{id:‘q4’,col:‘q4_transp’,text:‘What do you mainly use for daily travel?’,type:‘radio’,opts:[‘Bus’,‘Taxi’,‘Private car’]},
-{id:‘q5’,col:‘q5_purpose’,text:‘If you use the bus, what is your main reason?’,hint:‘Select all that apply’,type:‘cb’,opts:[‘Work’,‘School / University’,‘Shopping’,‘Visiting friends or family’,‘Other’]}
-]},
-{pill:‘❌ Non-usage reasons’, ctx:null, note:null, qs:[
-{id:‘q6’,col:‘q6_reasons’,text:“If you don’t use buses — why?”,hint:‘Select all that apply’,type:‘cb’,
-opts:[‘No official app for schedules and routes’,‘I prefer using my own car’,‘No fixed bus stops’,‘Long waiting times’,“Bus routes don’t reach my area”,‘Buses are not clean’,‘Not enough seats’,‘Not accessible for people with special needs’]}
-]},
-{pill:‘⏱️ Travel time’,
-ctx:{krd:‘وای دانێ ئەچیت بۆ (زانکۆ، بازاڕ، سەردانی هاوڕێ…)’,en:‘Imagine you are going somewhere — university, the bazar, visiting a friend…’},
-note:null, qs:[
-{id:‘q7’,col:‘q7_same’,text:‘If the bus takes the same time as your car, would you take the bus?’,type:‘yn’},
-{id:‘q8’,col:‘q8_5min’,text:‘If the bus takes 5 minutes longer than your car, would you still take it?’,type:‘yn’},
-{id:‘q9’,col:‘q9_15min’,text:‘If the bus takes 10 to 15 minutes longer, would you still take it?’,type:‘yn’}
-]},
-{pill:‘🔄 Transfers’, ctx:null, note:null, qs:[
-{id:‘q10’,col:‘q10_transfers’,text:‘How many bus changes are you willing to make for one trip?’,type:‘radio’,
-opts:[‘No changes, direct — one bus’,‘1 change — two buses’,‘2 changes — three buses’,‘I would not use buses’]}
-]},
-{pill:‘🗺️ Route convenience’, ctx:null, note:null, qs:[
-{id:‘q11’,col:‘q11_route’,text:‘If there was a bus route near both your home and workplace, would you use it most of the time instead of your car?’,type:‘yn’}
-]},
-{pill:‘📊 Service quality’,
-ctx:null,
-note:null, qs:[
-{id:‘q12’,col:‘q12_punct’,text:‘How would you describe bus punctuality in your city?’,type:‘lk’,opts:[‘There is no schedule at all’,‘Poor’,‘Average’,‘Good’,‘Very good’]},
-{id:‘q14’,col:‘q14_info’,text:‘How easy is it to find bus route and schedule information?’,type:‘radio’,opts:[‘Only locals know’,‘Only regular users know’,‘Only common lines are known’,‘There is an app for times and routes’]}
-]},
-{pill:‘💡 Improvements’, ctx:null, note:null, qs:[
-{id:‘q15’,col:‘q15_impr’,text:‘What would make you use buses more?’,hint:‘Select all that apply’,type:‘cb’,
-opts:[‘Mobile app with live bus tracking’,‘More frequent buses’,‘Clear published schedules’,‘Better route coverage’,‘More comfortable seats’,‘Lower ticket price’,‘Cleaner buses’,‘Buses accessible for people with disabilities’,‘Blind guide lines at stops’,‘Fixed and clear bus stops’,‘Route info displayed at stops’,‘Fixed departure times from main terminal’,‘Remove middle seats so people don't climb over others’]}
-]},
-{pill:‘🧠 Awareness’, ctx:null, note:{krd:‘ئەم پرسیارە تایبەتە بە سلێمانی، بەڵام ئەگەر لە هەر شاری تری کوردستانیشەوەیت، بەپێی ئەزموونی خۆت وەڵام بدەوە — وەڵامەکەت بە هەمان شێوە گرنگە بۆمان.’,en:‘These questions are based on Sulaimani, but if you are from any other city in Kurdistan, please answer based on your own experience — your answer is equally valued.’}, qs:[
-{id:‘q16’,col:‘q16_aware’,text:‘Did you know Sulaimani has around 39 bus lines covering most of the city?’,type:‘yesno’}
-]},
-{pill:‘💬 Your ideas’, ctx:null, note:null, qs:[
-{id:‘q17’,col:‘q17_feedback’,text:‘Any ideas, suggestions or feedback? If you want to be part of this project and help make public transport digital and better across all of Kurdistan — write to us here.’,hint:‘Optional’,type:‘textarea’}
-]}
+  {pill:'👤 Basic information', ctx:null, note:null, qs:[
+    {id:'q1',col:'q1_city',text:'Which province are you from?',type:'radio',opts:PR},
+    {id:'q2',col:'q2_age',text:'What is your age group?',type:'radio',opts:['Under 18','18–25','26–40','41–60','60+']}
+  ]},
+  {pill:'📋 Identity', ctx:null, note:null, qs:[
+    {id:'q3',col:'q3_identity',text:'(Optional) Share your name, email or location',hint:'Choose what you are comfortable sharing',type:'nl'}
+  ]},
+  {pill:'🚌 Transport usage', ctx:null, note:null, qs:[
+    {id:'q4',col:'q4_transp',text:'What do you mainly use for daily travel?',type:'radio',opts:['Bus','Taxi','Private car']},
+    {id:'q5',col:'q5_purpose',text:'If you use the bus, what is your main reason?',hint:'Select all that apply',type:'cb',opts:['Work','School / University','Shopping','Visiting friends or family','Other']}
+  ]},
+  {pill:'❌ Non-usage reasons', ctx:null, note:null, qs:[
+    {id:'q6',col:'q6_reasons',text:"If you don't use buses — why?",hint:'Select all that apply',type:'cb',
+     opts:['No official app for schedules and routes','I prefer using my own car','No fixed bus stops','Long waiting times',"Bus routes don't reach my area",'Buses are not clean','Not enough seats','Not accessible for people with special needs']}
+  ]},
+  {pill:'⏱️ Travel time',
+   ctx:{krd:'وای دانێ ئەچیت بۆ (زانکۆ، بازاڕ، سەردانی هاوڕێ…)',en:'Imagine you are going somewhere — university, the bazar, visiting a friend…'},
+   note:null, qs:[
+    {id:'q7',col:'q7_same',text:'If the bus takes the same time as your car, would you take the bus?',type:'yn'},
+    {id:'q8',col:'q8_5min',text:'If the bus takes 5 minutes longer than your car, would you still take it?',type:'yn'},
+    {id:'q9',col:'q9_15min',text:'If the bus takes 10 to 15 minutes longer, would you still take it?',type:'yn'}
+  ]},
+  {pill:'🔄 Transfers', ctx:null, note:null, qs:[
+    {id:'q10',col:'q10_transfers',text:'How many bus changes are you willing to make for one trip?',type:'radio',
+     opts:['No changes, direct — one bus','1 change — two buses','2 changes — three buses','I would not use buses']}
+  ]},
+  {pill:'🗺️ Route convenience', ctx:null, note:null, qs:[
+    {id:'q11',col:'q11_route',text:'If there was a bus route near both your home and workplace, would you use it most of the time instead of your car?',type:'yn'}
+  ]},
+  {pill:'📊 Service quality',
+   ctx:null,
+   note:null, qs:[
+    {id:'q12',col:'q12_punct',text:'How would you describe bus punctuality in your city?',type:'lk',opts:['There is no schedule at all','Poor','Average','Good','Very good']},
+    {id:'q14',col:'q14_info',text:'How easy is it to find bus route and schedule information?',type:'radio',opts:['Only locals know','Only regular users know','Only common lines are known','There is an app for times and routes']}
+  ]},
+  {pill:'💡 Improvements', ctx:null, note:null, qs:[
+    {id:'q15',col:'q15_impr',text:'What would make you use buses more?',hint:'Select all that apply',type:'cb',
+     opts:['Mobile app with live bus tracking','More frequent buses','Clear published schedules','Better route coverage','More comfortable seats','Lower ticket price','Cleaner buses','Buses accessible for people with disabilities','Blind guide lines at stops','Fixed and clear bus stops','Route info displayed at stops','Fixed departure times from main terminal','Remove middle seats so people don\'t climb over others']}
+  ]},
+  {pill:'🧠 Awareness', ctx:null, note:{krd:'ئەم پرسیارە تایبەتە بە سلێمانی، بەڵام ئەگەر لە هەر شاری تری کوردستانیشەوەیت، بەپێی ئەزموونی خۆت وەڵام بدەوە — وەڵامەکەت بە هەمان شێوە گرنگە بۆمان.',en:'These questions are based on Sulaimani, but if you are from any other city in Kurdistan, please answer based on your own experience — your answer is equally valued.'}, qs:[
+    {id:'q16',col:'q16_aware',text:'Did you know Sulaimani has around 39 bus lines covering most of the city?',type:'yesno'}
+  ]},
+  {pill:'💬 Your ideas', ctx:null, note:null, qs:[
+    {id:'q17',col:'q17_feedback',text:'Any ideas, suggestions or feedback? If you want to be part of this project and help make public transport digital and better across all of Kurdistan — write to us here.',hint:'Optional',type:'textarea'}
+  ]}
 ];
 
 function saveDB(p){
-setSave(‘saving’);
-var h={‘Content-Type’:‘application/json’,‘apikey’:SK,‘Authorization’:‘Bearer ‘+SK,‘Prefer’:‘return=minimal’};
-if(!rEx){
-fetch(SU+’/rest/v1/survey_responses’,{method:‘POST’,headers:h,body:JSON.stringify(Object.assign({session_id:SID},p))})
-.then(function(r){if(r.ok){rEx=true;setSave(‘saved’);}else setSave(‘err’);}).catch(function(){setSave(‘err’);});
-} else {
-fetch(SU+’/rest/v1/survey_responses?session_id=eq.’+SID,{method:‘PATCH’,headers:h,body:JSON.stringify(Object.assign({updated_at:new Date().toISOString()},p))})
-.then(function(r){if(r.ok)setSave(‘saved’);else setSave(‘err’);}).catch(function(){setSave(‘err’);});
-}
+  setSave('saving');
+  var h={'Content-Type':'application/json','apikey':SK,'Authorization':'Bearer '+SK,'Prefer':'return=minimal'};
+  if(!rEx){
+    fetch(SU+'/rest/v1/survey_responses',{method:'POST',headers:h,body:JSON.stringify(Object.assign({session_id:SID},p))})
+      .then(function(r){if(r.ok){rEx=true;setSave('saved');}else setSave('err');}).catch(function(){setSave('err');});
+  } else {
+    fetch(SU+'/rest/v1/survey_responses?session_id=eq.'+SID,{method:'PATCH',headers:h,body:JSON.stringify(Object.assign({updated_at:new Date().toISOString()},p))})
+      .then(function(r){if(r.ok)setSave('saved');else setSave('err');}).catch(function(){setSave('err');});
+  }
 }
 
 function setSave(s){
-var d=document.getElementById(‘dt’),t=document.getElementById(‘st’);
-d.className=‘dot’+(s?’ ‘+s:’’);
-if(s===‘saving’){t.innerHTML=’<span class="sk2">پاراستن…</span> Saving\u2026’;}
-else if(s===‘saved’){t.innerHTML=’<span class="sk2">پارستراو</span> Saved’;setTimeout(function(){d.className=‘dot’;t.innerHTML=’<span class="sk2">ئامادەیە</span> Ready’;},2000);}
-else{t.innerHTML=’<span class="sk2">سەرنەکەوت</span> Failed’;}
+  var d=document.getElementById('dt'),t=document.getElementById('st');
+  d.className='dot'+(s?' '+s:'');
+  if(s==='saving'){t.innerHTML='<span class="sk2">پاراستن...</span> Saving\u2026';}
+  else if(s==='saved'){t.innerHTML='<span class="sk2">پارستراو</span> Saved';setTimeout(function(){d.className='dot';t.innerHTML='<span class="sk2">ئامادەیە</span> Ready';},2000);}
+  else{t.innerHTML='<span class="sk2">سەرنەکەوت</span> Failed';}
 }
 
 function fq(id){for(var i=0;i<SEC.length;i++)for(var j=0;j<SEC[i].qs.length;j++)if(SEC[i].qs[j].id===id)return SEC[i].qs[j];return null;}
 
 function render(idx){
-var sec=SEC[idx];
-var kp=KP[sec.pill]||sec.pill;
-document.getElementById(‘pill’).innerHTML=(kp?’<span class="pk">’+kp+’</span><span class="ps"> · </span>’:’’)+sec.pill;
-var pct=Math.round(((idx+1)/SEC.length)*100);
-document.getElementById(‘pf’).style.width=pct+’%’;
-document.getElementById(‘pc’).textContent=pct+’%’;
-document.getElementById(‘sl’).textContent=‘Section ‘+(idx+1)+’ of ‘+SEC.length;
-document.getElementById(‘bb’).disabled=(idx===0);
-var nb=document.getElementById(‘nb’);
-if(idx===SEC.length-1){nb.innerHTML=’<span class="bk">ناردنی راپرسی</span>Submit survey’;nb.className=‘btn sub’;}
-else{nb.innerHTML=’<span class="bk">دواتر \u2190</span>Next \u2192’;nb.className=‘btn pri’;}
-// context box
-var ctxEl=document.getElementById(‘ctx’);
-if(sec.ctx){
-ctxEl.innerHTML=’<div class="ctx-box"><div class="ctx-krd">’+sec.ctx.krd+’</div><div class="ctx-en">’+sec.ctx.en+’</div></div>’;
-ctxEl.style.display=‘block’;
-} else { ctxEl.style.display=‘none’; ctxEl.innerHTML=’’; }
-// note box
-var noteEl=document.getElementById(‘note’);
-if(sec.note){
-noteEl.innerHTML=’<div class="note-box"><div class="note-krd">’+sec.note.krd+’</div><div class="note-en">’+sec.note.en+’</div></div>’;
-noteEl.style.display=‘block’;
-} else { noteEl.style.display=‘none’; noteEl.innerHTML=’’; }
-var ds=document.getElementById(‘ds’);ds.innerHTML=’’;
-for(var i=0;i<SEC.length;i++){var d=document.createElement(‘div’);d.className=‘sd’+(i<idx?’ dn’:i===idx?’ ac’:’’);ds.appendChild(d);}
-document.getElementById(‘qa’).innerHTML=sec.qs.map(rq).join(’’);
-restore(sec);bindAll();
-window.scrollTo({top:0,behavior:‘smooth’});
+  var sec=SEC[idx];
+  var kp=KP[sec.pill]||sec.pill;
+  document.getElementById('pill').innerHTML=(kp?'<span class="pk">'+kp+'</span><span class="ps"> · </span>':'')+sec.pill;
+  var pct=Math.round(((idx+1)/SEC.length)*100);
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pc').textContent=pct+'%';
+  document.getElementById('sl').textContent='Section '+(idx+1)+' of '+SEC.length;
+  document.getElementById('bb').disabled=(idx===0);
+  var nb=document.getElementById('nb');
+  if(idx===SEC.length-1){nb.innerHTML='<span class="bk">ناردنی راپرسی</span>Submit survey';nb.className='btn sub';}
+  else{nb.innerHTML='<span class="bk">دواتر \u2190</span>Next \u2192';nb.className='btn pri';}
+  // context box
+  var ctxEl=document.getElementById('ctx');
+  if(sec.ctx){
+    ctxEl.innerHTML='<div class="ctx-box"><div class="ctx-krd">'+sec.ctx.krd+'</div><div class="ctx-en">'+sec.ctx.en+'</div></div>';
+    ctxEl.style.display='block';
+  } else { ctxEl.style.display='none'; ctxEl.innerHTML=''; }
+  // note box
+  var noteEl=document.getElementById('note');
+  if(sec.note){
+    noteEl.innerHTML='<div class="note-box"><div class="note-krd">'+sec.note.krd+'</div><div class="note-en">'+sec.note.en+'</div></div>';
+    noteEl.style.display='block';
+  } else { noteEl.style.display='none'; noteEl.innerHTML=''; }
+  var ds=document.getElementById('ds');ds.innerHTML='';
+  for(var i=0;i<SEC.length;i++){var d=document.createElement('div');d.className='sd'+(i<idx?' dn':i===idx?' ac':'');ds.appendChild(d);}
+  document.getElementById('qa').innerHTML=sec.qs.map(rq).join('');
+  restore(sec);bindAll();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function rq(q){
-var kq=KQ[q.id]||’’;
-var head=’<div class="bq"><div class="bqe">’+q.text+’</div>’+(kq?’<div class="bqk">’+kq+’</div>’:’’)+’</div>’;
-var hint=’’;
-if(q.hint){hint=’<div class="bh"><span class="bhe">’+q.hint+’</span><span class="bhk">’+(q.hint===‘Select all that apply’?‘هەموو ئەوانەی دەگونجێن هەڵبژێرە’:‘ئەوەی ئارەزوومەندیت هاوبەش بکە’)+’</span></div>’;}
-var inner=’’;
-if(q.type===‘radio’){
-inner=’<div class="opts">’+q.opts.map(function(o){
-var ko=KO[o]||’’;
-var lbl=ko?’<span class="bo"><span class="boe">’+o+’</span><span class="bok">’+ko+’</span></span>’:o;
-return ‘<button class="opt" data-q="'+q.id+'" data-v="'+o+'" data-t="r"><div class="ci"><div class="cd"></div></div>’+lbl+’</button>’;
-}).join(’’)+’</div>’;
-} else if(q.type===‘cb’){
-inner=hint+’<div class="opts">’+q.opts.map(function(o){
-var ko=KO[o]||’’;
-var lbl=ko?’<span class="bo"><span class="boe">’+o+’</span><span class="bok">’+ko+’</span></span>’:o;
-return ‘<button class="opt" data-q="'+q.id+'" data-v="'+o+'" data-t="c"><div class="sq"><svg class="ck" width="9" height="9" viewBox="0 0 9 9" fill="none"><polyline points="1 4.5 3.5 7 8 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>’+lbl+’</button>’;
-}).join(’’)+’</div>’;
-} else if(q.type===‘lk’){
-inner=’<div class="lr">’+q.opts.map(function(o){
-var ko=KO[o]||o;
-return ‘<button class="lk" data-q="'+q.id+'" data-v="'+o+'"><span class="lkk">’+ko+’</span>’+o+’</button>’;
-}).join(’’)+’</div>’;
-} else if(q.type===‘yn’){
-inner=’<div class="yr">’+
-‘<button class="yn" data-q="'+q.id+'" data-v="Yes"><span class="ynk">بەڵێ</span>Yes</button>’+
-‘<button class="yn" data-q="'+q.id+'" data-v="Maybe"><span class="ynk">لەوانەیە</span>Maybe</button>’+
-‘<button class="yn" data-q="'+q.id+'" data-v="No"><span class="ynk">نەخێر</span>No</button>’+
-‘</div>’;
-} else if(q.type===‘yesno’){
-inner=’<div class="yr">’+
-‘<button class="yn" data-q="'+q.id+'" data-v="Yes"><span class="ynk">بەڵێ</span>Yes</button>’+
-‘<button class="yn" data-q="'+q.id+'" data-v="No"><span class="ynk">نەخێر</span>No</button>’+
-‘</div>’;
-} else if(q.type===‘nl’){
-inner=hint+
-‘<div class="nt">’+
-‘<button class="nb" id="nnb" onclick="nls(\'n\')"><span class="nk">✏️ ناوم بنووسە</span>✏️ Name</button>’+
-‘<button class="nb" id="neb" onclick="nls(\'e\')"><span class="nk">✉️ ئیمەیڵم بنووسە</span>✉️ Email</button>’+
-‘<button class="nb" id="nlb" onclick="nls(\'l\')"><span class="nk">📍 شوێنەکەم هاوبەش بکە</span>📍 Location</button>’+
-‘</div>’+
-‘<div class="nw" id="nnw"><input class="ni" id="nni" type="text" placeholder="ناوت بنووسە / Enter your name" oninput="saveNL(\'name\',this.value)"></div>’+
-‘<div class="nw" id="new2"><input class="ni" id="nei" type="email" placeholder="ئیمەیڵت بنووسە / Enter your email" oninput="saveNL(\'email\',this.value)"></div>’+
-‘<div class="nw" id="nlw">’+
-‘<button class="lb" id="lgb" onclick="gl()">’+
-‘<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>’+
-‘<span class="nk" style="font-size:12px;">کلیک بکە بۆ شوێنەکەم</span>Tap to get location’+
-‘</button>’+
-‘<div class="ls" id="ls"></div>’+
-‘</div>’+
-‘<span class="sl" onclick="nsk()"><span style="font-family:\'Noto Sans Arabic\',sans-serif;font-size:12px;direction:rtl;">ئەم پرسیارە تێپەڕ بکە</span> / Skip</span>’;
-} else if(q.type===‘textarea’){
-inner=’<textarea class="ni" style="min-height:120px;resize:vertical;" data-q="'+q.id+'" placeholder="بۆچوونت بنووسە، یان ئەگەر دەتەوێت بەشداری ئەم پرۆژەیە بکەیت بە زانیاری زیاتر یان پێشنیارێک، لێرە بنووسە... / Write your ideas or contact us to be part of this project..." oninput="saveTa(\''+q.id+'\',this.value)"></textarea>’;
-}
-return ‘<div class="qc" data-qid-card="'+q.id+'"><div class="qn">’+q.id.toUpperCase().replace(‘Q’,‘Q ‘)+’</div>’+head+inner+’</div>’;
+  var kq=KQ[q.id]||'';
+  var head='<div class="bq"><div class="bqe">'+q.text+'</div>'+(kq?'<div class="bqk">'+kq+'</div>':'')+'</div>';
+  var hint='';
+  if(q.hint){hint='<div class="bh"><span class="bhe">'+q.hint+'</span><span class="bhk">'+(q.hint==='Select all that apply'?'هەموو ئەوانەی دەگونجێن هەڵبژێرە':'ئەوەی ئارەزوومەندیت هاوبەش بکە')+'</span></div>';}
+  var inner='';
+  if(q.type==='radio'){
+    inner='<div class="opts">'+q.opts.map(function(o){
+      var ko=KO[o]||'';
+      var lbl=ko?'<span class="bo"><span class="boe">'+o+'</span><span class="bok">'+ko+'</span></span>':o;
+      return '<button class="opt" data-q="'+q.id+'" data-v="'+o+'" data-t="r"><div class="ci"><div class="cd"></div></div>'+lbl+'</button>';
+    }).join('')+'</div>';
+  } else if(q.type==='cb'){
+    inner=hint+'<div class="opts">'+q.opts.map(function(o){
+      var ko=KO[o]||'';
+      var lbl=ko?'<span class="bo"><span class="boe">'+o+'</span><span class="bok">'+ko+'</span></span>':o;
+      return '<button class="opt" data-q="'+q.id+'" data-v="'+o+'" data-t="c"><div class="sq"><svg class="ck" width="9" height="9" viewBox="0 0 9 9" fill="none"><polyline points="1 4.5 3.5 7 8 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+lbl+'</button>';
+    }).join('')+'</div>';
+  } else if(q.type==='lk'){
+    inner='<div class="lr">'+q.opts.map(function(o){
+      var ko=KO[o]||o;
+      return '<button class="lk" data-q="'+q.id+'" data-v="'+o+'"><span class="lkk">'+ko+'</span>'+o+'</button>';
+    }).join('')+'</div>';
+  } else if(q.type==='yn'){
+    inner='<div class="yr">'+
+      '<button class="yn" data-q="'+q.id+'" data-v="Yes"><span class="ynk">بەڵێ</span>Yes</button>'+
+      '<button class="yn" data-q="'+q.id+'" data-v="Maybe"><span class="ynk">لەوانەیە</span>Maybe</button>'+
+      '<button class="yn" data-q="'+q.id+'" data-v="No"><span class="ynk">نەخێر</span>No</button>'+
+      '</div>';
+  } else if(q.type==='yesno'){
+    inner='<div class="yr">'+
+      '<button class="yn" data-q="'+q.id+'" data-v="Yes"><span class="ynk">بەڵێ</span>Yes</button>'+
+      '<button class="yn" data-q="'+q.id+'" data-v="No"><span class="ynk">نەخێر</span>No</button>'+
+      '</div>';
+  } else if(q.type==='nl'){
+    inner=hint+
+      '<div class="nt">'+
+        '<button class="nb" id="nnb" onclick="nls(\'n\')"><span class="nk">✏️ ناوم بنووسە</span>✏️ Name</button>'+
+        '<button class="nb" id="neb" onclick="nls(\'e\')"><span class="nk">✉️ ئیمەیڵم بنووسە</span>✉️ Email</button>'+
+        '<button class="nb" id="nlb" onclick="nls(\'l\')"><span class="nk">📍 شوێنەکەم هاوبەش بکە</span>📍 Location</button>'+
+      '</div>'+
+      '<div class="nw" id="nnw"><input class="ni" id="nni" type="text" placeholder="ناوت بنووسە / Enter your name" oninput="saveNL(\'name\',this.value)"></div>'+
+      '<div class="nw" id="new2"><input class="ni" id="nei" type="email" placeholder="ئیمەیڵت بنووسە / Enter your email" oninput="saveNL(\'email\',this.value)"></div>'+
+      '<div class="nw" id="nlw">'+
+        '<button class="lb" id="lgb" onclick="gl()">'+
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>'+
+          '<span class="nk" style="font-size:12px;">کلیک بکە بۆ شوێنەکەم</span>Tap to get location'+
+        '</button>'+
+        '<div class="ls" id="ls"></div>'+
+      '</div>'+
+      '<span class="sl" onclick="nsk()"><span style="font-family:\'Noto Sans Arabic\',sans-serif;font-size:12px;direction:rtl;">ئەم پرسیارە تێپەڕ بکە</span> / Skip</span>';
+  } else if(q.type==='textarea'){
+    inner='<textarea class="ni" style="min-height:120px;resize:vertical;" data-q="'+q.id+'" placeholder="بۆچوونت بنووسە، یان ئەگەر دەتەوێت بەشداری ئەم پرۆژەیە بکەیت بە زانیاری زیاتر یان پێشنیارێک، لێرە بنووسە... / Write your ideas or contact us to be part of this project..." oninput="saveTa(\''+q.id+'\',this.value)"></textarea>';
+  }
+  return '<div class="qc" data-qid-card="'+q.id+'"><div class="qn">'+q.id.toUpperCase().replace('Q','Q ')+'</div>'+head+inner+'</div>';
 }
 
 function bindAll(){
-var area=document.getElementById(‘qa’);
-area.querySelectorAll(’.opt’).forEach(function(b){
-b.addEventListener(‘click’,function(){
-var qid=this.dataset.q,val=this.dataset.v,t=this.dataset.t;
-if(t===‘r’){
-area.querySelectorAll(’.opt[data-q=”’+qid+’”]’).forEach(function(x){x.classList.remove(‘sel’);});
-this.classList.add(‘sel’);A[qid]=val;
-var q=fq(qid);if(q){var p={};p[q.col]=val;saveDB(p);}
-} else {
-this.classList.toggle(‘sel’,!this.classList.contains(‘sel’));
-var vals=[];
-area.querySelectorAll(’.opt[data-q=”’+qid+’”].sel’).forEach(function(x){vals.push(x.dataset.v);});
-A[qid]=vals;var q2=fq(qid);if(q2){var p2={};p2[q2.col]=vals.join(’, ‘);saveDB(p2);}
-}
-});
-});
-area.querySelectorAll(’.lk’).forEach(function(b){
-b.addEventListener(‘click’,function(){
-var qid=this.dataset.q,val=this.dataset.v;
-area.querySelectorAll(’.lk[data-q=”’+qid+’”]’).forEach(function(x){x.classList.remove(‘sel’);});
-this.classList.add(‘sel’);A[qid]=val;
-var q=fq(qid);if(q){var p={};p[q.col]=val;saveDB(p);}
-});
-});
-area.querySelectorAll(’.yn’).forEach(function(b){
-b.addEventListener(‘click’,function(){
-var qid=this.dataset.q,val=this.dataset.v;
-area.querySelectorAll(’.yn[data-q=”’+qid+’”]’).forEach(function(x){x.classList.remove(‘y’,‘m’,‘n’);});
-this.classList.add(val===‘Yes’?‘y’:val===‘Maybe’?‘m’:‘n’);
-A[qid]=val;var q=fq(qid);if(q){var p={};p[q.col]=val;saveDB(p);}
-});
-});
+  var area=document.getElementById('qa');
+  area.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      var qid=this.dataset.q,val=this.dataset.v,t=this.dataset.t;
+      if(t==='r'){
+        area.querySelectorAll('.opt[data-q="'+qid+'"]').forEach(function(x){x.classList.remove('sel');});
+        this.classList.add('sel');A[qid]=val;
+        var q=fq(qid);if(q){var p={};p[q.col]=val;saveDB(p);}
+      } else {
+        this.classList.toggle('sel',!this.classList.contains('sel'));
+        var vals=[];
+        area.querySelectorAll('.opt[data-q="'+qid+'"].sel').forEach(function(x){vals.push(x.dataset.v);});
+        A[qid]=vals;var q2=fq(qid);if(q2){var p2={};p2[q2.col]=vals.join(', ');saveDB(p2);}
+      }
+    });
+  });
+  area.querySelectorAll('.lk').forEach(function(b){
+    b.addEventListener('click',function(){
+      var qid=this.dataset.q,val=this.dataset.v;
+      area.querySelectorAll('.lk[data-q="'+qid+'"]').forEach(function(x){x.classList.remove('sel');});
+      this.classList.add('sel');A[qid]=val;
+      var q=fq(qid);if(q){var p={};p[q.col]=val;saveDB(p);}
+    });
+  });
+  area.querySelectorAll('.yn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var qid=this.dataset.q,val=this.dataset.v;
+      area.querySelectorAll('.yn[data-q="'+qid+'"]').forEach(function(x){x.classList.remove('y','m','n');});
+      this.classList.add(val==='Yes'?'y':val==='Maybe'?'m':'n');
+      A[qid]=val;var q=fq(qid);if(q){var p={};p[q.col]=val;saveDB(p);}
+    });
+  });
 }
 
 function restore(sec){
-var area=document.getElementById(‘qa’);
-sec.qs.forEach(function(q){
-var s=A[q.id];if(!s)return;
-if(q.type===‘radio’){area.querySelectorAll(’.opt[data-q=”’+q.id+’”]’).forEach(function(b){if(b.dataset.v===s)b.classList.add(‘sel’);});}
-else if(q.type===‘cb’&&Array.isArray(s)){s.forEach(function(v){var b=area.querySelector(’.opt[data-q=”’+q.id+’”][data-v=”’+v+’”]’);if(b)b.classList.add(‘sel’);});}
-else if(q.type===‘lk’){area.querySelectorAll(’.lk[data-q=”’+q.id+’”]’).forEach(function(b){if(b.dataset.v===s)b.classList.add(‘sel’);});}
-else if(q.type===‘yn’||q.type===‘yesno’){area.querySelectorAll(’.yn[data-q=”’+q.id+’”]’).forEach(function(b){if(b.dataset.v===s)b.classList.add(s===‘Yes’?‘y’:s===‘Maybe’?‘m’:‘n’);});}
-});
+  var area=document.getElementById('qa');
+  sec.qs.forEach(function(q){
+    var s=A[q.id];if(!s)return;
+    if(q.type==='radio'){area.querySelectorAll('.opt[data-q="'+q.id+'"]').forEach(function(b){if(b.dataset.v===s)b.classList.add('sel');});}
+    else if(q.type==='cb'&&Array.isArray(s)){s.forEach(function(v){var b=area.querySelector('.opt[data-q="'+q.id+'"][data-v="'+v+'"]');if(b)b.classList.add('sel');});}
+    else if(q.type==='lk'){area.querySelectorAll('.lk[data-q="'+q.id+'"]').forEach(function(b){if(b.dataset.v===s)b.classList.add('sel');});}
+    else if(q.type==='yn'||q.type==='yesno'){area.querySelectorAll('.yn[data-q="'+q.id+'"]').forEach(function(b){if(b.dataset.v===s)b.classList.add(s==='Yes'?'y':s==='Maybe'?'m':'n');});}
+  });
 }
 
 function nls(m){
-[‘nnb’,‘neb’,‘nlb’].forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove(‘act’);});
-[‘nnw’,‘new2’,‘nlw’].forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove(‘show’);});
-var bm={n:‘nnb’,e:‘neb’,l:‘nlb’};
-var wm={n:‘nnw’,e:‘new2’,l:‘nlw’};
-if(document.getElementById(bm[m]))document.getElementById(bm[m]).classList.add(‘act’);
-if(document.getElementById(wm[m]))document.getElementById(wm[m]).classList.add(‘show’);
+  ['nnb','neb','nlb'].forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('act');});
+  ['nnw','new2','nlw'].forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('show');});
+  var bm={n:'nnb',e:'neb',l:'nlb'};
+  var wm={n:'nnw',e:'new2',l:'nlw'};
+  if(document.getElementById(bm[m]))document.getElementById(bm[m]).classList.add('act');
+  if(document.getElementById(wm[m]))document.getElementById(wm[m]).classList.add('show');
 }
-function saveNL(type,v){A.q3=type+’:’+v;var q=fq(‘q3’);if(q){var p={};p[q.col]=type+’:’+v;saveDB(p);}}
-function nsk(){A.q3=‘skipped’;}
+function saveNL(type,v){A.q3=type+':'+v;var q=fq('q3');if(q){var p={};p[q.col]=type+':'+v;saveDB(p);}}
+function nsk(){A.q3='skipped';}
 function gl(){
-var b=document.getElementById(‘lgb’),s=document.getElementById(‘ls’);
-if(!navigator.geolocation){s.textContent=‘Not supported’;return;}
-b.textContent=‘Getting location\u2026’;
-navigator.geolocation.getCurrentPosition(
-function(pos){
-var lat=pos.coords.latitude.toFixed(5),lng=pos.coords.longitude.toFixed(5);
-var v=‘lat:’+lat+’,lng:’+lng;A.q3=v;
-var q=fq(‘q3’);if(q){var p={};p[q.col]=v;saveDB(p);}
-b.className=‘lb got’;
-b.innerHTML=’<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Saved’;
-s.textContent=lat+’, ’+lng;s.style.color=‘var(–green)’;
-},
-function(){s.textContent=‘Could not get location.’;s.style.color=‘var(–red)’;b.textContent=‘Tap to get location’;}
-);
+  var b=document.getElementById('lgb'),s=document.getElementById('ls');
+  if(!navigator.geolocation){s.textContent='Not supported';return;}
+  b.textContent='Getting location\u2026';
+  navigator.geolocation.getCurrentPosition(
+    function(pos){
+      var lat=pos.coords.latitude.toFixed(5),lng=pos.coords.longitude.toFixed(5);
+      var v='lat:'+lat+',lng:'+lng;A.q3=v;
+      var q=fq('q3');if(q){var p={};p[q.col]=v;saveDB(p);}
+      b.className='lb got';
+      b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Saved';
+      s.textContent=lat+', '+lng;s.style.color='var(--green)';
+    },
+    function(){s.textContent='Could not get location.';s.style.color='var(--red)';b.textContent='Tap to get location';}
+  );
 }
 
 function saveTa(qid,v){
-A[qid]=v;
-var q=fq(qid);if(q){var p={};p[q.col]=v;saveDB(p);}
+  A[qid]=v;
+  var q=fq(qid);if(q){var p={};p[q.col]=v;saveDB(p);}
 }
 
 function go(dir){
-var next=cur+dir;
-if(next<0)return;
-if(next>=SEC.length){
-saveDB({completed:true});
-document.getElementById(‘sb’).style.display=‘none’;
-document.getElementById(‘ty’).style.display=‘block’;
-document.getElementById(‘tid’).textContent=’ID: ’+SID;
-return;
-}
-cur=next;render(cur);
+  var next=cur+dir;
+  if(next<0)return;
+  if(next>=SEC.length){
+    saveDB({completed:true});
+    document.getElementById('sb').style.display='none';
+    document.getElementById('ty').style.display='block';
+    document.getElementById('tid').textContent='ID: '+SID;
+    return;
+  }
+  cur=next;render(cur);
 }
 
 render(0);
 </script>
-
 </body>
 </html>
